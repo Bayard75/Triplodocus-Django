@@ -1,0 +1,208 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Bayard75 
+Bayard75
+/
+triplodocus
+1
+00
+ Code
+ Issues 0
+ Pull requests 0 Actions
+ Projects 0
+ Wiki
+ Security 0
+ Insights
+ Settings
+triplodocus/app/static/assets/css/untitled.css
+ Bayard75 site fonctionnel en web
+8542316 7 days ago
+178 lines (151 sloc)  2.68 KB
+  
+#logo_1 {
+  background: tra;
+}
+
+body {
+  /*top: 0px;*/
+  /*left: 0px;*/
+  /*width: 1920px;*/
+  /*height: 13780px;*/
+  background: #F7F1E9 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+#date {
+  text-align: center;
+  font-family: Avenir;
+  letter-spacing: -0.42px;
+  color: #262626;
+  opacity: 1;
+}
+
+#logo_1_col {
+  background: transparent 0% 0% no-repeat padding-box;
+}
+
+#col {
+}
+
+.col.offset-xl-8 {
+  margin-left: 90%;
+}
+
+#date_col {
+  margin-top: 61px;
+}
+
+#logo_col {
+  width: 447px;
+  height: 447px;
+  opacity: 1;
+  margin-top: 141px;
+  /*margin-left: 737px;*/
+}
+
+#accroche_col {
+  margin-top: 154px;
+  letter-spacing: -1.16px;
+  font-size: 55px;
+  color: #262626;
+  font-family: Alba Super;
+}
+
+#histoire {
+  /*margin-top: 213.76px;*/
+  position: relative;
+}
+
+#image_triplo_histoire {
+  max-width: 100%;
+  max-height: 100%;
+  /*position: relative;*/
+}
+
+#h1_sorties {
+  text-align: center;
+  font-family: Bondi;
+  letter-spacing: 0px;
+  /*color: #FFFFFF;*/
+  border-radius: 13px;
+  opacity: 1;
+  font-size: 56px;
+  background-color: #ffffff;
+}
+
+#h3_clip {
+}
+
+#derniere_sorties {
+  /*position: relative;*/
+  margin-top: 187px;
+  /*margin-left: 209px;*/
+  /*margin-right: 208px;*/
+}
+
+.row.titre_row {
+
+  background: #8E0303 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.video-container {
+  border-radius: 15px;
+  margin-left: 21px;
+  margin-top: 50px;
+}
+
+.realisation {
+  text-align: center;
+  font-family: Comfortaa;
+  letter-spacing: 0px;
+  color: #FEC959;
+  opacity: 1;
+  font-size: 16px;
+}
+
+#descriptif_magic_finger_joe {
+  text-align: center;
+  font-family: Comfortaa;
+  letter-spacing: 0px;
+  color: #FEC959;
+  opacity: 1;
+  font-size: 30px;
+}
+
+.container-fluid.archetype_sortie {
+  /*margin-left: 10px;*/
+  /*position: absolute;*/
+  /*left: 209px;*/
+  /*top: 100px;*/
+}
+
+#dernier_titre_h3 {
+  color: #ffffff;
+  /*background: #FEC959 0% 0% no-repeat padding-box;*/
+  /*border-radius: 13px;*/
+  opacity: 1;
+  width: 361px;
+  font-family: Bondi;
+  background: #262626 0% 0% no-repeat padding-box;
+  border-radius: 13px;
+  /*opacity: 1;*/
+}
+
+#dernier_project_ensemble {
+  background: #E0CDB8 0% 0% no-repeat padding-box;
+}
+
+#descriptif_alexendrie {
+  text-align: center;
+  font-family: Phosphate;
+  letter-spacing: 0px;
+  color: #262626;
+  opacity: 1;
+  font-size: 59px;
+}
+
+#realisation_alexendrie {
+  text-align: center;
+  font-family: Comfortaa;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+#concept {
+  margin-top: 212px;
+}
+
+.artiste_description {
+  text-align: center;
+  letter-spacing: 0;
+  color: #262626;
+  opacity: 1;
+  font-family: Comfortaa;
+  font-size: 18px;
+}
+
+#madud_image {
+  max-width: 195px;
+  max-height: 195px;
+}
+
+#wam_image {
+  max-width: 195px;
+  max-height: 195px;
+}
+
+iframe{
+  border-radius: 15px;
+
+}
