@@ -14,6 +14,8 @@ class Son(models.Model):
     youtube = models.URLField()
     deezer = models.URLField()
     spotify = models.URLField()
+    en_avant = models.BooleanField(default=False)
+    
 
     def __str__(self):
         return f'{self.titre} son model.'

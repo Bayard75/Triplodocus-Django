@@ -1,10 +1,16 @@
 from django.shortcuts import render
+from .models import Son
+
+import json
 
 
-# Create your views here.
 def acceuil(request):
+
+    context = {
+        'sons': Son.objects.all()
+    }
     user_agent = request.headers.get('User-Agent')
     if 'Mobi' in user_agent:
-        return render(request, 'website/acceuil_mobile.html')
+        return render(request, 'website/acceuil_mobile.html', context)
 
-    return render(request, 'website/acceuil.html')
+    return render(request, 'website/acceuil_web.html', context)
