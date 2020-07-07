@@ -1,1 +1,634 @@
-body{background:no-repeat padding-box #f7f1e9}#image_header_row,#pochette_row{text-align:center}#image_header_row img{max-width:50%;max-height:50%}#derniers_sorties_block,#header_block{margin-top:100px}#header_heading_row{text-align:center;margin-top:150px}@font-face{font-family:'Alba Super';src:url(http://www.fontsaddict.com/fontface/alba-super.TTF)}#header_heading_row h1{font-family:Regular;letter-spacing:-1.16px;color:#262626;opacity:1;font-size:57px}#histoire_block p{letter-spacing:0;color:#000;font-size:37px;opacity:1;font-family:Comfortaa;text-align:center;margin-top:500px}#histoire_block .container{background:url(../../assets/img/logo%20triplo%20fond%20texte.png) center no-repeat padding-box;height:1282px}#concept_block h1,#derniers_sorties_block h1,#projet_galerrie_row h1{font-family:Bondi;background:no-repeat padding-box #fff;border-radius:13px;text-align:center}#en_avant_span{font-size:32px;text-align:center;font-family:Bondi;letter-spacing:0;color:#262626;opacity:1;background:no-repeat padding-box #fec959;border-radius:13px;opacity:1}iframe{border-radius:20px;border:5px solid #f7f1e9;margin-top:20px}#en_avant_row{margin-top:20px;background:no-repeat padding-box #8e0303;opacity:1;text-align:center;height:400px}#dernier_son_row>*,#en_avant_row>*{margin-top:20px}#en_avant_row p{text-align:center;font-family:Comfortaa;letter-spacing:0;color:#fec959;opacity:1;font-size:larger;margin:20px}#realisation_span{text-align:center;font-family:Comfortaa;letter-spacing:0;color:#fec959;opacity:1;font-size:14Px;margin-top:10px}#dernier_projet_span{font-size:32px;text-align:center;font-family:Bondi;letter-spacing:0;color:#fff;opacity:1;border-radius:13px;opacity:1;background:no-repeat padding-box #262626}#dernier_son_row{margin-top:70px;background:no-repeat padding-box #e0cdb8;opacity:1;height:400px;text-align:center;letter-spacing:0;color:#262626;font-family:Phosphate;opacity:1}#dernier_paragraph{font-size:59px;margin-top:20px}#resume_dernier_col span{font-family:Comfortaa;letter-spacing:0;color:#000;font-weight:700;opacity:1}#realisation_span_dernier{font-family:Comfortaa}#concept_block{margin-top:150px;text-align:center}#concept_block h3{font-family:Bondi;letter-spacing:0;color:#8e8b86;opacity:1;font-size:50px}#projet_galerrie_row{margin-top:150px}.pochette{max-width:250px;max-height:340px}.titre_pochette{max-width:250px;max-height:150px;margin-top:30px}#pochette_row .col-md-3{margin-top:70px}#empty_col1{background:no-repeat padding-box #efe5d9;opacity:1;width:343px;height:250px}#empty_col{background:no-repeat padding-box #efe5d9;opacity:1;height:250px;width:250px;margin-right:20px}#empty_col-1{background:no-repeat padding-box #efe5d9;opacity:.75}#empty_col-2{background:no-repeat padding-box #efe5d9;opacity:.5;height:250px;margin-left:15px}#empty_col-3{background:no-repeat padding-box #efe5d9;opacity:.25;height:250px}#social_media_block{margin-top:200px}
+.offset-1
+{
+  margin-left:0;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    body {
+      background: #F7F1E9 0% 0% no-repeat padding-box;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .row.resume_row {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #image_header_row img {
+      max-width: 100%;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #header_heading_row h1 {
+      font-family: 'Regular';
+      letter-spacing: -0.32px;
+      color: #262626;
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #histoire_block p {
+      letter-spacing: 0px;
+      color: #000000;
+      opacity: 1;
+      font-family: 'Comfortaa';
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #histoire_block {
+      margin-top: 75px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #en_avant_span {
+      text-align: left;
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #262626;
+      opacity: 1;
+      background: #FEC959 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      opacity: 1;
+      font-size: 20px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #derniers_sorties_block {
+      margin-top: 75px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #derniers_sorties_block h1 {
+      font-family: "Bondi";
+      font-size: 40px;
+      border-radius: 13px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #header_heading_row {
+      margin-top: 75px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #en_avant_row {
+      margin-top: 20px;
+      background: #8E0303 0% 0% no-repeat padding-box;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #image_en_avant {
+      max-width: 160px;
+    }
+    #image_dernier
+    {
+      max-width: 160px;
+    }
+  }
+  @media (min-width: 1025px) {
+    #image_en_avant {
+      max-width: 200px;
+    }
+    #image_dernier
+    {
+      max-width: 200px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #en_avant_row {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #realisation_span {
+      text-align: center;
+      font-family: "Comfortaa";
+      letter-spacing: 0px;
+      color: #FEC959;
+      opacity: 1;
+      font-size: 14Px;
+      margin-top: 10px;
+      padding-bottom: 20px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #en_avant_row .col-md-6 {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    iframe {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    iframe {
+      border-radius: 20px;
+      border: 5px solid #F7F1E9;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #dernier_projet_span {
+      font-size: 20px;
+      text-align: center;
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+      margin-top: 20px!important;
+      border-radius: 13px;
+      opacity: 1;
+      background: #262626 0% 0% no-repeat padding-box;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #dernier_son_row {
+      background: #E0CDB8 0% 0% no-repeat padding-box;
+      opacity: 1;
+      height: 400px;
+      text-align: center;
+      letter-spacing: 0px;
+      color: #262626;
+      font-family: "Phosphate";
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #dernier_son_row {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #concept_block {
+      margin-top: 65px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #concept_block h1 {
+      font-family: "Bondi";
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      text-align: center;
+      font-size: 35px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #concept_block h3 {
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #8E8B86;
+      opacity: 1;
+      font-size: 21px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #header_block {
+      margin-top: 100px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #3_mois span {
+      max-width: 22px;
+      max-height: 56px;
+      font-size: 42px;
+      display: none;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #3_mois span {
+      color: red;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .mois_span {
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      font-size: 15Px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .3_span {
+      font-size: 64px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .3_span {
+      font-family: "Bondi";
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #3_mois img {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .calendrier {
+      max-width: 93px;
+      max-height: 94px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .pochette_img {
+      max-width: 93px;
+      max-height: 93px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #projet_galerrie_row h1 {
+      font-family: "Bondi";
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      text-align: center;
+      font-size: 25px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #projet_galerrie_row {
+      margin-top: 80px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #pochette_row {
+      display: flex;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #pochette_row > * {
+      flex: 0 50%;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #pochette_row img {
+      max-width: 153px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .titre_pochette {
+      max-height: 50px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #social_media_block {
+      margin-top: 100px;
+    }
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    #social_media_block img {
+      max-width: 63px;
+      max-height: 15px;
+    }
+  }
+
+  @media (min-width:1025px) {
+    body {
+      background: #F7F1E9 0% 0% no-repeat padding-box;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    iframe {
+      width: 560px;
+      height: 315px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #image_header_row {
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #image_header_row img {
+      max-width: 50%;
+      max-height: 50%;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #header_block {
+      margin-top: 100px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #header_heading_row {
+      text-align: center;
+      margin-top: 150px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #header_heading_row h1 {
+      font-family: 'Regular';
+      letter-spacing: -1.16px;
+      color: #262626;
+      opacity: 1;
+      font-size: 57px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #histoire_block p {
+      letter-spacing: 0px;
+      color: #000000;
+      font-size: 37px;
+      opacity: 1;
+      font-family: 'Comfortaa';
+      text-align: center;
+      margin-top: 500px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #histoire_block .container {
+      background: transparent url("logo triplo fond texte.png") 0% 0% no-repeat padding-box;
+      background-position: center;
+      height: 1282px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #derniers_sorties_block h1 {
+      font-family: "Bondi";
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #derniers_sorties_block {
+      margin-top: 100px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #en_avant_span {
+      font-size: 32px;
+      text-align: center;
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #262626;
+      opacity: 1;
+      background: #FEC959 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    iframe {
+      border-radius: 20px;
+      border: 5px solid #F7F1E9;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #en_avant_row {
+      margin-top: 20px;
+      background: #8E0303 0% 0% no-repeat padding-box;
+      opacity: 1;
+      text-align: center;
+      height: 400px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #en_avant_row > * {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #en_avant_row p {
+      text-align: center;
+      font-family: "Comfortaa";
+      letter-spacing: 0px;
+      color: #FEC959;
+      opacity: 1;
+      font-size: larger;
+      margin: 20px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #realisation_span {
+      text-align: center;
+      font-family: "Comfortaa";
+      letter-spacing: 0px;
+      color: #FEC959;
+      opacity: 1;
+      font-size: 14Px;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #dernier_son_row {
+      margin-top: 70px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #dernier_projet_span {
+      font-size: 32px;
+      text-align: center;
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #FFFFFF;
+      opacity: 1;
+      border-radius: 13px;
+      opacity: 1;
+      background: #262626 0% 0% no-repeat padding-box;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #dernier_son_row {
+      background: #E0CDB8 0% 0% no-repeat padding-box;
+      opacity: 1;
+      height: 400px;
+      text-align: center;
+      letter-spacing: 0px;
+      color: #262626;
+      font-family: "Phosphate";
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #dernier_son_row > * {
+      margin-top: 20px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #dernier_paragraph {
+      font-size: 59px;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #resume_dernier_col span {
+      font-family: "Comfortaa";
+      letter-spacing: 0px;
+      color: #000000;
+      font-weight: bold;
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #realisation_span_dernier {
+      font-family: "Comfortaa";
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #concept_block h1 {
+      font-family: "Bondi";
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #concept_block {
+      margin-top: 150px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #concept_block h3 {
+      font-family: "Bondi";
+      letter-spacing: 0px;
+      color: #8E8B86;
+      opacity: 1;
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #projet_galerrie_row {
+      margin-top: 150px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #projet_galerrie_row h1 {
+      font-family: "Bondi";
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border-radius: 13px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    .pochette {
+      max-width: 250px;
+      max-height: 340px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    .titre_pochette {
+      max-width: 200px;
+      max-height: 150px;
+      margin-top: 30px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #pochette_row {
+      text-align: center;
+      display: flex;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #pochette_row .col-md-3 {
+      margin-top: 70px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    #social_media_block {
+      margin-top: 200px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    .calendrier {
+      max-width: 300px;
+      max-height: 375px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    .pochette_img {
+      max-width: 300px;
+      max-height: 375px;
+    }
+  }
+  
+  @media (min-width:1025px) {
+    .pochette {
+      max-width: 250px;
+      max-height: 375px;
+    }
+  }

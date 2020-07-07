@@ -8,12 +8,12 @@ class Son(models.Model):
     titre = models.CharField(primary_key=True, max_length=255)
     titre_image = models.ImageField(default='default.jpg', upload_to='son_pics')
     poster_image = models.ImageField(default='default.jpg', upload_to='son_poster')
-    resume = models.TextField()
-    realisation = models.TextField()
+    resume = models.TextField(blank=True)
+    realisation = models.TextField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
-    youtube = models.URLField()
-    deezer = models.URLField()
-    spotify = models.URLField()
+    youtube = models.URLField(blank=True)
+    deezer = models.URLField(blank=True)
+    spotify = models.URLField(blank=True)
     en_avant = models.BooleanField(default=False)
     
 
