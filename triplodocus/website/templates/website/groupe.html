@@ -14,7 +14,7 @@
     <link rel="stylesheet" href=" static/assets/css/admin.css">
 </head>
 
-<body>
+<body style="font-family:comfortaa;">
     <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col">
@@ -25,7 +25,7 @@
     </div>
     <div class="container" style="margin-top: 50px;">
         <div class="row no-gutters">
-            <div class="col offset-lg-9"><button class="btn btn-primary" type="button">Ajouter un son</button></div>
+            <div class="col offset-lg-9"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal_ajout">Ajouter un son</button></div>
         </div>
     </div>
     <div id="titres_block" style="/*display: none;*/">
@@ -36,15 +36,16 @@
                 </div>
             </div>
             <div class="row" id="titres_block" style="margin-top: 20px;">
+            
             {% for son in sons%}
                 <div class="col-md-3" style="position: relative;margin-top: 50px; display:flex; flex-direction:column; justify-content:space-between;"
                     onmouseover = "displayBadges('delete_badge_{{son.titre}}', 'edit_badge_{{son.titre}}')"
                     onmouseout ="hideBadges('delete_badge_{{son.titre}}', 'edit_badge_{{son.titre}}')">
                     <div class="row">
-                        <div class="col-xl-9"><img class="pochette" src=" static/{{son.poster_image}}"></div>
+                        <div class="col-xl-9"><img class="pochette" src="media/{{son.poster_image}}"></div>
                     </div>
                     <div class="row">
-                        <div class="col" style="text-align:center;"><img class="titre_pochette" src=" static/{{son.titre_image}}"></div>
+                        <div class="col" style="text-align:center;"><img class="titre_pochette" src="media/{{son.titre_image}}"></div>
                     </div>
                     <div class="row text-center" style="margin-top: 20px;">
                         <div class="col"><form>
@@ -55,16 +56,50 @@
                         </div>
                         </form></div>
                     </div>
-                    <span id="delete_badge_{{son.titre}}" class="badge badge-primary" style=" cursor: pointer; visibility:hidden; position: absolute;top: -10px;right: 10px;">
+                    <span id="delete_badge_{{son.titre}}" data-toggle="modal" data-target="#modal_supprimer" class="badge badge-primary spmodal" style=" cursor: pointer; visibility:hidden; position: absolute;top: -10px;right: 10px;">
                     <i class="fa fa-remove"></i></span>
                     <span id="edit_badge_{{son.titre}}" class="badge badge-primary" style="cursor : pointer; visibility: hidden; position: absolute;top: -10px;left: 10px;">
                     <i class="far fa-edit"></i></span></div>
-            
-            
+                    
             {% endfor %}
-            </div>
+                    <!-- MODAL SUPPRESSION -->
 
+                    <div class="modal fade" role="dialog" tabindex="-1" id="modal_supprimer">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" style="font-family: comfortaa;">Supprimer ce titre ?</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                <div class="modal-body">
+                                    <p>Cette action suprimerra définitivement toutes les informations de <strong>{{son.titre}}</strong> de notre base de données. En êtes-vous sure ?</p>
+                                </div>
+                                <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Annuler</button><button class="btn btn-danger" type="submit">Supprimer</button></div>
+                            </div>
+                        </div>
+                    </div>
+            <!-- Modal ajout de son-->
+           <div class="modal fade" role="dialog" tabindex="-1" id="modal_ajout">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-xl-12 offset-xl-3">
+                                    <h4 class="modal-title" style="font-family: comfortaa;">Ajout d'un nouveau son</h4>
+                                </div>
+                            </div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body">
+                        <form id="form_ajout" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            {{form_song}}
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Annuler</button><button class="btn btn-primary" type="submit">Enregistrer</button></div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
+    </div>
+       
     </div>
     <script src= "static/assets/js/admin_page.js"></script>
     

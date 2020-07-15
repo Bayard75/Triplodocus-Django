@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Son
-
+from django.views.decorators.csrf import csrf_exempt
+from .forms import SonForm
 import json
 
 
@@ -14,10 +15,24 @@ def acceuil(request):
 
     return render(request, 'website/acceuil_web.html', context)
 
+
 def admin_page(request):
 
-    context = {
-        'sons': Son.objects.all().order_by('-en_avant','-date_posted')
-    }
+    if request.method == 'POST':
+        song_form = SonForm(request.POST, request.FILES)
+        print(song_form)
+        if song_form.is_valid():
+            song_form.save()
+            context = {
+                'sons': Son.objects.all().order_by('-en_avant','-date_posted'),
+                'form_song': SonForm
+            }
+            return render(request, 'website/groupe.html', context)
+    else:
+        song_form = SonForm
+        context = {
+            'sons': Son.objects.all().order_by('-en_avant','-date_posted'),
+            'form_song': SonForm
+        }
 
-    return render(request, 'website/groupe.html', context)
+        return render(request, 'website/groupe.html', context)

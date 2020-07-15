@@ -312,6 +312,7 @@
       max-height: 50px;
       margin-top: 10px;
       margin-bottom: 10px;
+      
     }
   }
   
@@ -588,7 +589,7 @@
   @media (min-width:1025px) {
     .titre_pochette {
       max-width: 200px;
-      max-height: 150px;
+      max-height: 83px;
       margin-top: 30px;
     }
   }
