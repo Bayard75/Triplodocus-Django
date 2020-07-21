@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <!DOCTYPE html>
 <html>
 
@@ -89,7 +91,8 @@
                         <div class="modal-body">
                         <form id="form_ajout" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                            {{form_song}}
+                            {{form_song|crispy}}
+                            
                         <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Annuler</button><button class="btn btn-primary" type="submit">Enregistrer</button></div>
                         </form>
 
