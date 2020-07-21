@@ -58,7 +58,7 @@
         src="{{en_avant.youtube}}"></iframe><span id="realisation_span">{{en_avant.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
                     <div class="row">
-                        <div class="col"><img id="image_en_avant" src="static/{{en_avant.titre_image}}"></div>
+                        <div class="col"><img id="image_en_avant" src="media/{{en_avant.titre_image}}"></div>
                     </div>
                     <div class="row resume_row">
                         <div class="col">
@@ -77,7 +77,7 @@
                 <div class="col-md-6"><iframe allowfullscreen frameborder="0" src={{dernier.youtube}}></iframe><span id="realisation_span_dernier">{{dernier.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
                     <div class="row">
-                        <div class="col"><img id="image_dernier" src="static/{{dernier.titre_image}}"></div>
+                        <div class="col"><img id="image_dernier" src="media/{{dernier.titre_image}}"></div>
                     </div>
                     <div class="row resume_row">
                         <div class="col">
@@ -127,10 +127,10 @@
             {% for son in sons%}
                 <div class="col-md-3">
                     <div class="row">
-                        <div class="col-xl-9"><img class="pochette" src="static/{{son.poster_image}}"></div>
+                        <div class="col-xl-9"><img class="pochette" src="media/{{son.poster_image}}"></div>
                     </div>
                     <div class="row">
-                        <div class="col"><img class="titre_pochette" src="static/{{son.titre_image}}"></div>
+                        <div class="col"><img class="titre_pochette" src="media/{{son.titre_image}}"></div>
                     </div>
                 </div>
             {% endfor %}
