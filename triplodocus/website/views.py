@@ -11,7 +11,7 @@ def acceuil(request):
 
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
-        'dernier': Son.objects.latest('date_posted')
+        'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted')
     }
 
     try:

@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Son(models.Model):
-    titre = models.CharField(unique=True, max_length=255)
+    titre = models.CharField(unique=True,max_length=255)
     titre_image = models.ImageField(default='default.jpg', upload_to='tire_image')
     poster_image = models.ImageField(default='default.jpg', upload_to='poster_image')
     resume = models.TextField(blank=True)
