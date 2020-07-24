@@ -11,9 +11,14 @@ def acceuil(request):
 
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
-        'en_avant': Son.objects.get(en_avant=True),
         'dernier': Son.objects.latest('date_posted')
     }
+
+    try:
+        context['en_avant'] = Son.objects.get(en_avant=True)
+
+    except:
+        pass
 
     return render(request, 'website/acceuil_web.html', context)
 
