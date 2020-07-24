@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Son
 
 from django.views.decorators.csrf import csrf_exempt
-from .forms import SonForm
+from .forms import SonForm, SonUpdateForm
 from django.http import JsonResponse
 import json
 
@@ -29,12 +29,12 @@ def admin_page(request):
                 'form_song': SonForm
             }
             return render(request, 'website/groupe.html', context)
-    
+
     else:
         song_form = SonForm
         context = {
             'sons': Son.objects.all().order_by('-en_avant','-date_posted'),
-            'form_song': SonForm
+            'form_song': SonForm,
         }
 
         return render(request, 'website/groupe.html', context)
@@ -52,3 +52,6 @@ def delete_song(request):
         return JsonResponse({'message': 'Le titre a bien été suprimé'})
 
     return redirect('site-acceuil')
+
+def update_song(request):
+    pass

@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.acceuil, name="site-acceuil"),
     path('groupe', views.admin_page, name="page-admin"),
     path('delete_song', views.delete_song, name="delete-song"),
+    path('update_song', views.update_song, name="update-song"),
 ]
