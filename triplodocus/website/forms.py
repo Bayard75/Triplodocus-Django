@@ -12,7 +12,8 @@ class SonForm(forms.ModelForm):
                   'realisation',
                   'youtube',
                   'deezer',
-                  'spotify']
+                  'spotify',
+                  'en_avant']
 
 class SonUpdateForm(forms.ModelForm):
     
