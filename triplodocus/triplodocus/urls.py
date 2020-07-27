@@ -24,4 +24,5 @@ urlpatterns = [
     path('groupe/', include('website.urls')),
     path('delete_song', include('website.urls')),
     path('change_en_avant', include('website.urls')),
+    path('edit/<id>', include('website.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

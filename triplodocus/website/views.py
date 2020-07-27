@@ -32,6 +32,22 @@ def acceuil(request):
 
     return render(request, 'website/acceuil_web.html', context)
 
+def edit_song(request,id):
+    
+    song = Son.objects.get(id=id)
+    if request.method == 'POST':
+        song_form = SonForm(request.POST,request.FILES,instance=song)
+        if song_form.is_valid():
+            song_form.save()
+            return redirect('page-admin')
+
+    song_form = SonForm(instance=song)
+    context = {
+        'song': song,
+        'song_form': song_form
+    }
+        
+    return render(request, 'website/edition.html', context)
 
 def admin_page(request):
 
