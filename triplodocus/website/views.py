@@ -58,5 +58,19 @@ def delete_song(request):
 
     return redirect('site-acceuil')
 
-def update_song(request):
-    pass
+@csrf_exempt
+def change_en_avant(request):
+    if request.method == 'POST':
+        body = json.loads(request.body)
+        id = body['id']
+        ancient_en_avant = Son.objects.get(en_avant=True)
+        new_en_avant = Son.objects.get(id=id)
+
+        ancient_en_avant.en_avant = False
+        ancient_en_avant.save()
+        new_en_avant.en_avant = True
+        new_en_avant.save()
+
+        return JsonResponse({'ancient': ancient_en_avant.id})
+    
+    return redirect('site-acceuil')

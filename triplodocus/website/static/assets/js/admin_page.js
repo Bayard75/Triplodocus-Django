@@ -22,7 +22,6 @@ function showModalSuppression(id_to_delete)
 
 function deleteSong(id)
 {
-    console.log('salut')
     let body = {id: id}
 
     let host = window.location.origin;
@@ -56,3 +55,33 @@ ajoutForm.addEventListener('submit',function(event)
     youtubeValue.value = youtubeValue.value.replace('watch?v=','embed/')
 })
 
+function changeEnAvant(id)
+{
+    let body = {id: id.slice(7)}
+
+    let host = window.location.origin;
+    let change_page = new URL('/change_en_avant',host)
+    
+    
+    fetch(change_page,{
+            method: 'POST',
+            headers:{
+            'Content-Type': 'application/json',
+            'X-CSRFToken':'{{csrf_token}}',
+            'X-Requested-With':'XMLHttpRequest' 
+            },
+
+            body:JSON.stringify(body),
+            mode:'cors',
+            cache:'default',
+            credentials:'include'     
+        })
+        .then((reponse)=>{
+            return reponse.json()
+        })
+        .then((data)=>{
+            document.getElementById(id).checked = true
+            let ancien_id = 'switch_'+data['ancient']
+            document.getElementById(ancien_id).checked = false
+        })   
+}

@@ -60,9 +60,10 @@
                     <div class="row text-center" style="margin-top: 20px;">
                         <div class="col"><form>
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="switch_{{son.titre}}"
-                            {%if son.en_avant == True%} checked {% endif %}>
-                            <label class="custom-control-label" for="switch_{{son.titre}}">Mettre en avant</label>
+                            <input type="checkbox" class="custom-control-input" id="switch_{{son.id}}" 
+                            {%if son.en_avant == True%} checked {% endif %}
+                            onclick="changeEnAvant(this.id)">
+                            <label class="custom-control-label" for="switch_{{son.id}}">Mettre en avant</label>
                         </div>
                         </form></div>
                     </div>
