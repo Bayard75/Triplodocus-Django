@@ -51,9 +51,7 @@
       text-align: left;
       font-family: "Bondi";
       letter-spacing: 0px;
-      color: #262626;
       opacity: 1;
-      background: #FEC959 0% 0% no-repeat padding-box;
       border-radius: 13px;
       opacity: 1;
       font-size: 20px;
@@ -84,7 +82,6 @@
   @media (min-width: 320px) and (max-width: 480px) {
     #en_avant_row {
       margin-top: 20px;
-      background: #8E0303 0% 0% no-repeat padding-box;
     }
   }
   
@@ -421,7 +418,6 @@
       letter-spacing: 0px;
       color: #262626;
       opacity: 1;
-      background: #FEC959 0% 0% no-repeat padding-box;
       border-radius: 13px;
       opacity: 1;
     }
@@ -438,7 +434,6 @@
   @media (min-width:1025px) {
     #en_avant_row {
       margin-top: 20px;
-      background: #8E0303 0% 0% no-repeat padding-box;
       opacity: 1;
       text-align: center;
       height: 400px;
@@ -456,7 +451,6 @@
       text-align: center;
       font-family: "Comfortaa";
       letter-spacing: 0px;
-      color: #FEC959;
       opacity: 1;
       font-size: larger;
       margin: 20px;

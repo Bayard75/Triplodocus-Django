@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Son
+from .models import Son, EnAvantStyle
 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import SonForm, SonUpdateForm
@@ -11,7 +11,8 @@ def acceuil(request):
 
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
-        'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted')
+        'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted'),
+        'style': EnAvantStyle.objects.all().first()
     }
 
     try:

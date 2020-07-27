@@ -16,6 +16,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Triplo v2</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Bhai">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
@@ -52,22 +54,50 @@
             <!-- CLIP MIT EN AVANT-->
             {% if en_avant %}
             <div class="row" style="margin-top: 100px;margin-left: 0px;">
-                <div class="col-9 col-md-12 col-xl-5 offset-1"><span id="en_avant_span">&nbsp; NOTRE PREMIER CLIP&nbsp;&nbsp;</span></div>
+                <div class="col-9 col-md-12 col-xl-5 offset-1">
+                <span id="en_avant_span"style="background: {{style.banniere_background}} 0% 0% no-repeat padding-box;
+                        color: {{style.banniere_couleur}}">&nbsp; {{style.banniere_titre}}&nbsp;&nbsp;</span></div>
             </div>
-            <div class="row" id="en_avant_row">
+            <div class="row" id="en_avant_row" 
+            style="position: relative; background:{{style.background_corps}} 0% 0% no-repeat padding-box;">
+                <span id="edit_badge_{{son.titre}}" class="badge badge-primary" 
+                style="cursor : pointer; position: absolute; top: -29px;right: -10px; font-size:medium">
+                    <i class="far fa-edit"></i></span>
                 <div class="col-md-6"><iframe allowfullscreen frameborder="0" 
-        src="{{en_avant.youtube}}"></iframe><span id="realisation_span">{{en_avant.realisation}}</span></div>
+                src="{{en_avant.youtube}}"></iframe><span id="realisation_span">{{en_avant.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
                     <div class="row">
                         <div class="col"><img id="image_en_avant" src="{{en_avant.titre_image.url}}"></div>
                     </div>
                     <div class="row resume_row">
                         <div class="col">
-                            <p> {{en_avant.resume}}
+                            <p style="color:{{style.couleur_corps}}"> {{en_avant.resume}}
                         </div>
+                    </div>
+                
+                </div>
+            </div>
+           <!-- Modal Edit en avant -->
+           <div class="modal fade" role="dialog" tabindex="-1" id="modal_edit">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="row">
+                                <div class="col-xl-12 offset-xl-3">
+                                    <h4 class="modal-title" style="font-family: comfortaa;">Edition en avant </h4>
+                                </div>
+                            </div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body">
+                        <form id="form_ajout" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">Annuler</button><button class="btn btn-primary" type="submit">Enregistrer</button></div>
+                        </form>
+
                     </div>
                 </div>
             </div>
+        </div>
             {% endif %}
             <!-- ---------------------------------------------------------------------------- -->
 

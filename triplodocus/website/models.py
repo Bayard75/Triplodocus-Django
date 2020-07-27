@@ -19,3 +19,10 @@ class Son(models.Model):
     def __str__(self):
         return f'{self.titre} son model.'
 
+
+class EnAvantStyle(models.Model):
+    banniere_titre = models.CharField(max_length=255,default='NOTRE PREMIER CLIP')
+    banniere_couleur = models.CharField(max_length=255, default='#262626')
+    banniere_background = models.CharField(max_length=255, default='#FEC959')
+    couleur_corps = models.CharField(max_length=255, default='#FEC959')
+    background_corps = models.CharField(max_length=255, default='#8E0303')
