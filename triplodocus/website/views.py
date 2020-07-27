@@ -2,17 +2,26 @@ from django.shortcuts import render, redirect
 from .models import Son, EnAvantStyle
 
 from django.views.decorators.csrf import csrf_exempt
-from .forms import SonForm, SonUpdateForm
+from .forms import SonForm, SonUpdateForm, EnAvantStyleUpdate
 from django.http import JsonResponse
 import json
 
 
 def acceuil(request):
 
+    current_styles = EnAvantStyle.objects.all().first()
+    
+    if request.method == 'POST':
+        styles_form = EnAvantStyleUpdate(request.POST, instance=current_styles)
+        if styles_form.is_valid():
+            styles_form.save()
+    styles_form = EnAvantStyleUpdate(instance=current_styles)
+    
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
         'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted'),
-        'style': EnAvantStyle.objects.all().first()
+        'style': current_styles,
+        'stylesUpdateForm': styles_form
     }
 
     try:

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Son
+from .models import Son, EnAvantStyle
 
 class SonForm(forms.ModelForm):
 
@@ -28,3 +28,13 @@ class SonUpdateForm(forms.ModelForm):
                   'youtube',
                   'deezer',
                   'spotify']
+
+class EnAvantStyleUpdate(forms.ModelForm):
+    
+    class Meta:
+        model = EnAvantStyle
+        fields = ['banniere_titre',
+                'banniere_couleur',
+                'banniere_background',
+                'couleur_corps',
+                'background_corps']
