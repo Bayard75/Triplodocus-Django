@@ -28,6 +28,8 @@
 
 <body>
     <div id="header_block" style="/*display: none;*/">
+    {% if user.is_authenticated %}<a class="nav-link js-scroll-trigger" href="{%url 'deconnexion'%}" style="font-size: 37px;"><i class="fa fa-sign-out"></i></a>{% endif %}
+
         <div class="container">
             <div class="row" id="image_header_row">
                 <div class="col-md-12"><img src="static/assets/img/triplodocusLOGO 2.png"></div>
@@ -62,9 +64,12 @@
             </div>
             <div class="row" id="en_avant_row" 
             style="position: relative; background:{{style.background_corps}} 0% 0% no-repeat padding-box;">
+               
+                {% if user.is_authenticated %}
                 <span id="edit_badge_{{son.titre}}" class="badge badge-primary" 
                 style="cursor : pointer; position: absolute; top: -29px;right: -10px; font-size:medium">
                     <i class="far fa-edit" data-toggle="modal" data-target="#modalEdit"></i></span>
+                {% endif %}
                 <div class="col-md-6"><iframe allowfullscreen frameborder="0" 
                 src="{{en_avant.youtube}}"></iframe><span id="realisation_span">{{en_avant.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
@@ -79,6 +84,7 @@
                 
                 </div>
             </div>
+        
            <!-- Modal Edit en avant -->
            <div class="modal fade" role="dialog" tabindex="-1" id="modalEdit">
                 <div class="modal-dialog" role="document">

@@ -17,12 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('website.urls')),
-    path('groupe/', include('website.urls')),
-    path('delete_song', include('website.urls')),
-    path('change_en_avant', include('website.urls')),
-    path('edit/<id>', include('website.urls')),
+    path('connexion/', auth_views.LoginView.as_view(template_name='website/login.html'), name='connexion'),
+    path('deconnexion/', auth_views.LogoutView.as_view(), name='deconnexion'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

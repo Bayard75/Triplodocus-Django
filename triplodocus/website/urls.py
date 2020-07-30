@@ -6,5 +6,6 @@ urlpatterns = [
     path('groupe', views.admin_page, name="page-admin"),
     path('delete_song', views.delete_song, name="delete-song"),
     path('change_en_avant', views.change_en_avant, name="change-en-avant"),
-    path('edit/<id>', views.edit_song, name='edit-son')
+    path('edit/<id>', views.edit_song, name='edit-son'),
+    path('connexion', views.connexion, name='connexion')
 ]

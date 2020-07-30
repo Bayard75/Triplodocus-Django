@@ -1,22 +1,25 @@
 from django.shortcuts import render, redirect
-from .models import Son, EnAvantStyle
+from django.contrib.auth.decorators import login_required
 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import SonForm, SonUpdateForm, EnAvantStyleUpdate
+
 from django.http import JsonResponse
 import json
+
+from .models import Son, EnAvantStyle
 
 
 def acceuil(request):
 
     current_styles = EnAvantStyle.objects.all().first()
-    
+
     if request.method == 'POST':
         styles_form = EnAvantStyleUpdate(request.POST, instance=current_styles)
         if styles_form.is_valid():
             styles_form.save()
     styles_form = EnAvantStyleUpdate(instance=current_styles)
-    
+
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
         'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted'),
@@ -32,11 +35,12 @@ def acceuil(request):
 
     return render(request, 'website/acceuil_web.html', context)
 
-def edit_song(request,id):
-    
+@login_required
+def edit_song(request, id):
+
     song = Son.objects.get(id=id)
     if request.method == 'POST':
-        song_form = SonForm(request.POST,request.FILES,instance=song)
+        song_form = SonForm(request.POST, request.FILES, instance=song)
         if song_form.is_valid():
             song_form.save()
             return redirect('page-admin')
@@ -46,9 +50,10 @@ def edit_song(request,id):
         'song': song,
         'song_form': song_form
     }
-        
+
     return render(request, 'website/edition.html', context)
 
+@login_required
 def admin_page(request):
 
     if request.method == 'POST':
@@ -70,6 +75,7 @@ def admin_page(request):
 
         return render(request, 'website/groupe.html', context)
 
+@login_required
 @csrf_exempt
 def delete_song(request):
 
@@ -84,6 +90,8 @@ def delete_song(request):
 
     return redirect('site-acceuil')
 
+
+@login_required
 @csrf_exempt
 def change_en_avant(request):
     if request.method == 'POST':
@@ -92,11 +100,17 @@ def change_en_avant(request):
         ancient_en_avant = Son.objects.get(en_avant=True)
         new_en_avant = Son.objects.get(id=id)
 
+        if new_en_avant.youtube == '':
+            return JsonResponse({'message': "Ce titre n'a pas de lien youtube"})
+        
         ancient_en_avant.en_avant = False
         ancient_en_avant.save()
         new_en_avant.en_avant = True
         new_en_avant.save()
 
         return JsonResponse({'ancient': ancient_en_avant.id})
-    
-    return redirect('site-acceuil')
+
+    return render(request, 'website/groupe.html', context)
+
+def connexion(request):
+    return render(request, 'website/login.html')

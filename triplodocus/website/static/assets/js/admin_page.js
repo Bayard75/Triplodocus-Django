@@ -80,8 +80,18 @@ function changeEnAvant(id)
             return reponse.json()
         })
         .then((data)=>{
-            document.getElementById(id).checked = true
-            let ancien_id = 'switch_'+data['ancient']
-            document.getElementById(ancien_id).checked = false
+            if (data['message'])
+            {
+                alert(data['message'])
+                document.getElementById(id).checked = false
+
+            }
+            else
+            {
+                document.getElementById(id).checked = true
+                let ancien_id = 'switch_'+data['ancient']
+                document.getElementById(ancien_id).checked = false
+            }
+
         })   
 }
