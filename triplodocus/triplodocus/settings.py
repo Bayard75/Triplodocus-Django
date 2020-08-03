@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'triplodocus.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'triplodocus_db',
+        'USER': 'postgres',
+        'PASSWORD': 'Vongola75',
+        'HOST': 'database-1.cako2jad8wnh.us-west-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -139,5 +143,5 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 LOGIN_URL = 'connexion'
 LOGIN_REDIRECT_URL = 'site-acceuil'
 
-LOGOUT_URL ='deconnexion'
+LOGOUT_URL = 'deconnexion'
 LOGOUT_REDIRECT_URL = 'site-acceuil'

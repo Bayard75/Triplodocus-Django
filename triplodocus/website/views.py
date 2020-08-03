@@ -111,6 +111,3 @@ def change_en_avant(request):
         return JsonResponse({'ancient': ancient_en_avant.id})
 
     return render(request, 'website/groupe.html', context)
-
-def connexion(request):
-    return render(request, 'website/login.html')
