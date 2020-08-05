@@ -6,13 +6,14 @@
 <head>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172039803-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172039803-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-172039803-1');
+  gtag('config', 'UA-172039803-1');
+</script>
     </script>
 
     <meta charset="utf-8">
@@ -27,9 +28,18 @@
 </head>
 
 <body>
+{% if user.is_authenticated %}
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav mr-auto">
+<span class="navbar-text actions">
+<a class="nav-link btn btn-success action-button" href="{% url 'groupe-admin' %}" style="color:white;">Page administrative</a></span>
+            </ul>
+            <span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="{%url 'deconnexion'%}">Deconnexion</a></span></div>
+    </div>
+</nav>{% endif %}
     <div id="header_block" style="/*display: none;*/">
-    {% if user.is_authenticated %}<a class="nav-link js-scroll-trigger" href="{%url 'deconnexion'%}" style="font-size: 37px;"><i class="fa fa-sign-out"></i></a>{% endif %}
-
         <div class="container">
             <div class="row" id="image_header_row">
                 <div class="col-md-12"><img src="static/assets/img/triplodocusLOGO 2.png"></div>
@@ -60,7 +70,7 @@
             <div class="row" style="margin-top: 100px;margin-left: 0px;">
                 <div class="col-9 col-md-12 col-xl-5 offset-1">
                 <span id="en_avant_span" style="background: {{style.banniere_background}} 0% 0% no-repeat padding-box;
-                        color: {{style.banniere_couleur}}">&nbsp; {{style.banniere_titre}}&nbsp;&nbsp;</span></div>
+                        color: {{style.banniere_couleur}}">{{style.banniere_titre}}</span></div>
             </div>
             <div class="row" id="en_avant_row" 
             style="position: relative; background:{{style.background_corps}} 0% 0% no-repeat padding-box;">
@@ -70,7 +80,7 @@
                 style="cursor : pointer; position: absolute; top: -29px;right: -10px; font-size:medium">
                     <i class="far fa-edit" data-toggle="modal" data-target="#modalEdit"></i></span>
                 {% endif %}
-                <div class="col-md-6"><iframe allowfullscreen frameborder="0" 
+                <div class="col-md-6"><iframe allowfullscreen frameborder="0" id='iframe_en_avant'
                 src="{{en_avant.youtube}}"></iframe><span id="realisation_span">{{en_avant.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
                     <div class="row">
@@ -78,7 +88,7 @@
                     </div>
                     <div class="row resume_row">
                         <div class="col">
-                            <p style="color:{{style.couleur_corps}}"> {{en_avant.resume}}
+                            <p id="p_resume" style="color:{{style.couleur_corps}}"> {{en_avant.resume}}
                         </div>
                     </div>
                 
@@ -90,7 +100,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <div class="row">
+                            <div class="row" style="justify-content: center;">
                                 <div class="col-xl-12 offset-xl-3">
                                     <h4 class="modal-title" style="font-family: comfortaa;">Edition en avant </h4>
                                 </div>
@@ -114,14 +124,16 @@
                 <div class="col-md-12 col-xl-5"><span id="dernier_projet_span" style="margin-bottom: -;">&nbsp; NOTRE DERNIER PROJET&nbsp;&nbsp;</span></div>
             </div>
             <div class="row" id="dernier_son_row" style="margin-top: 20px;">
-                <div class="col-md-6"><iframe allowfullscreen frameborder="0" src={{dernier.youtube}}></iframe><span id="realisation_span_dernier">{{dernier.realisation}}</span></div>
+                <div class="col-md-6">
+                <iframe allowfullscreen frameborder="0" id="iframe_dernier" src={{dernier.youtube}}></iframe>
+                <span id="realisation_span_dernier">{{dernier.realisation}}</span></div>
                 <div class="col-md-6 justify-content-center">
                     <div class="row">
                         <div class="col"><img id="image_dernier" src="{{dernier.titre_image.url}}"></div>
                     </div>
                     <div class="row resume_row">
                         <div class="col">
-                            <p id="dernier_paragraph">ALEXANDRIE ALEXANDRA</p><span style="font-family:'Comfortaa';">hors série #1</span></div>
+                            <p id="dernier_paragraph"> {{dernier.resume}}</p></div>
                     </div>
                 </div>
             </div>
@@ -164,17 +176,51 @@
                 </div>
             </div>
             <div class="row" id="pochette_row">
-            {% for son in sons%}
-                <div class="col-md-3">
-                    <div class="row">
-                        <div class="col-xl-9"><img class="pochette" src="{{son.poster_image.url}}"></div>
+                {% for son in sons%}
+                    <div class="col-md-3" data-toggle="modal" data-target="#modal{{son.id}}">
+                        <div class="row">
+                            <div class="col-xl-9"><img class="pochette" src="{{son.poster_image.url}}"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><img class="titre_pochette" src="{{son.titre_image.url}}"></div>
+                        </div>
+                        <span class="round-button"><i class="fa fa-play fa-2x"></i></span>
                     </div>
-                    <div class="row">
-                        <div class="col"><img class="titre_pochette" src="{{son.titre_image.url}}"></div>
-                    </div>
-                </div>
-            {% endfor %}
-               
+                        <div class="modal fade" role="dialog" tabindex="-1" id="modal{{son.id}}">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <div class="row">
+                                                <div class="col-xl-12 offset-xl-3">
+                                                    <h3 class="modal-title" style="font-family: comfortaa;">Ecouter {{son.titre}} !</h3>
+                                                </div>
+                                            </div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                               {% if son.youtube %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                     
+                                                        <iframe allowfullscreen frameborder="0" width="560" height="315" src="{{son.youtube}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+
+                                                {% if son.spotify %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <iframe src="{{son.spotify}}" width="320" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                                    </div>
+                                                </div>
+                                                 {% endif %}
+                                            </div>
+                                                <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal">Annuler</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                {% endfor %}
+                    
             </div>
         </div>
     </div>
@@ -213,9 +259,11 @@
         </div>
     </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <script src="static/assets/js/script.min.js"></script>
+    <script src="static/assets/js/script.min.js"></script>
 
 </body>
 

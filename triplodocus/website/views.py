@@ -22,16 +22,17 @@ def acceuil(request):
 
     context = {
         'sons': Son.objects.all().order_by('-date_posted'),
-        'dernier': Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted'),
         'style': current_styles,
-        'stylesUpdateForm': styles_form
+        'stylesUpdateForm': styles_form,
     }
-
-    try:
+    if Son.objects.filter(en_avant=True):
         context['en_avant'] = Son.objects.get(en_avant=True)
-
+    else:
+        context['en_avant'] = []
+    try:
+        context['dernier'] = Son.objects.exclude(youtube__exact='').exclude(en_avant=True).latest('date_posted')
     except:
-        pass
+        context['dernier'] = None
 
     return render(request, 'website/acceuil_web.html', context)
 
@@ -43,7 +44,7 @@ def edit_song(request, id):
         song_form = SonForm(request.POST, request.FILES, instance=song)
         if song_form.is_valid():
             song_form.save()
-            return redirect('page-admin')
+            return redirect('groupe-admin')
 
     song_form = SonForm(instance=song)
     context = {
@@ -97,17 +98,29 @@ def change_en_avant(request):
     if request.method == 'POST':
         body = json.loads(request.body)
         id = body['id']
-        ancient_en_avant = Son.objects.get(en_avant=True)
+        ancient_en_avant = Son.objects.filter(en_avant=True)
         new_en_avant = Son.objects.get(id=id)
 
         if new_en_avant.youtube == '':
             return JsonResponse({'message': "Ce titre n'a pas de lien youtube"})
         
-        ancient_en_avant.en_avant = False
-        ancient_en_avant.save()
-        new_en_avant.en_avant = True
-        new_en_avant.save()
+        if not ancient_en_avant:
+            new_en_avant.en_avant = True
+            new_en_avant.save()
+            return JsonResponse({'cas': '1'})
 
-        return JsonResponse({'ancient': ancient_en_avant.id})
+        elif new_en_avant.titre != ancient_en_avant[0].titre:
+            ancient_en_avant[0].en_avant = False
+            ancient_en_avant[0].save()
+            new_en_avant.en_avant = True
+            new_en_avant.save()
+            return JsonResponse({'ancient': ancient_en_avant[0].id,
+                                'cas': '2'})
+
+        else:
+            ancient_en_avant[0].en_avant = False
+            ancient_en_avant[0].save()
+            return JsonResponse({'ancient': ancient_en_avant[0].id,
+                                'cas': '3'})
 
     return render(request, 'website/groupe.html', context)

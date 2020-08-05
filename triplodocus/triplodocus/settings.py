@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'triplodocus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'triplodocus_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Vongola75',
-        'HOST': 'database-1.cako2jad8wnh.us-west-2.rds.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432'
     }
 }
@@ -127,19 +127,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACAK = 'bootstrap4'
-
-AWS_ACCESS_KEY_ID = 'AKIA2GMBHWDCZ2A7XAH2'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'triplodocus'
+'''
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+'''
 LOGIN_URL = 'connexion'
 LOGIN_REDIRECT_URL = 'site-acceuil'
 
