@@ -13,11 +13,11 @@ background-color: #F7F1E9;
 }
 .fade {
   opacity: 1;
-  -webkit-transition: opacity 0.75s linear;
-  transition: opacity 0.75s linear;
+  -webkit-transition: opacity 0.70s linear;
+  transition: opacity 0.70s linear;
 }
 
-textarea
+input
 {
   width: -webkit-fill-available;;
 }
