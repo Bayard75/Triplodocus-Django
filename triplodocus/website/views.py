@@ -22,7 +22,7 @@ def acceuil(request):
     styles_form = EnAvantStyleUpdate(instance=current_styles)
 
     context = {
-        'sons': Son.objects.all().order_by('-date_posted'),
+        'sons': Son.objects.all().order_by('-date_posted','-youtube'),
         'style': current_styles,
         'stylesUpdateForm': styles_form,
     }
