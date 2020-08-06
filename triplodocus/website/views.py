@@ -4,9 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from .forms import SonForm, SonUpdateForm, EnAvantStyleUpdate
 
-from django.http import JsonResponse
-import json
+from django.http import JsonResponse, HttpResponse
+from django.core import serializers
 
+import json
 from .models import Son, EnAvantStyle
 
 
@@ -37,22 +38,20 @@ def acceuil(request):
     return render(request, 'website/acceuil_web.html', context)
 
 @login_required
-def edit_song(request, id):
+def edit_song(request):
+    if request.method == 'GET':
+        print('dans get')
+        body = json.loads(request.body)
+        id = body['id']
 
-    song = Son.objects.get(id=id)
-    if request.method == 'POST':
-        song_form = SonForm(request.POST, request.FILES, instance=song)
-        if song_form.is_valid():
-            song_form.save()
-            return redirect('groupe-admin')
+@login_required
+def get_song_infos(request, id):
+    if request.method == 'GET':
+        song = Son.objects.filter(id=id)
+        song_serialized = serializers.serialize('json', song)
+        return HttpResponse(song_serialized, content_type="text/json-comment-filtered")
+    return redirect('groupe-admin')
 
-    song_form = SonForm(instance=song)
-    context = {
-        'song': song,
-        'song_form': song_form
-    }
-
-    return render(request, 'website/edition.html', context)
 
 @login_required
 def admin_page(request):

@@ -26,7 +26,7 @@
 <body style="font-family:comfortaa;">
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
     <div class="container">
-        <div class="collapse navbar-collapse" id="navcol-1">
+        <div class="navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
 <span class="navbar-text actions">
 <a class="nav-link btn btn-primary action-button" href="{% url 'site-acceuil' %}" style="color:white;">Page d'acceuil</a></span>
@@ -47,7 +47,7 @@
             <div class="col offset-lg-9"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal_ajout">Ajouter un son</button></div>
         </div>
     </div>
-    <div id="titres_block" style="/*display: none;*/">
+    <div id="titres_block" style="margin-top:50px">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4">
@@ -58,8 +58,8 @@
             
             {% for son in sons%}
                 <div class="col-md-3" style="position: relative;margin-top: 50px; display:flex; flex-direction:column; justify-content:space-between;"
-                    onmouseover = "displayBadges('delete_badge_{{son.titre}}', 'edit_badge_{{son.titre}}')"
-                    onmouseout ="hideBadges('delete_badge_{{son.titre}}', 'edit_badge_{{son.titre}}')"
+                    onmouseover = "displayBadges('delete_badge_{{son.titre}}', 'edit_{{son.titre}}')"
+                    onmouseout ="hideBadges('delete_badge_{{son.titre}}', 'edit_{{son.titre}}')"
                     id="{{son.id}}_col">
                     <div class="row">
                         <div class="col-xl-9"><img class="pochette" src="{{son.poster_image.url}}"></div>
@@ -82,8 +82,8 @@
                     style=" cursor: pointer; visibility:hidden; position: absolute;top: -10px;right: 10px;"
                     onclick= "deleteSong({{son.id}})">
                     <i class="fa fa-remove"></i></span>
-                    <a href="edit/{{son.id}}"><span id="edit_badge_{{son.titre}}" class="badge badge-primary" style="cursor : pointer; visibility: hidden; position: absolute;top: -10px;left: 10px;">
-                    <i class="far fa-edit"></i></span></a></div>
+                    <span id="edit_{{son.titre}}" onclick="getSongInfo({{son.id}})" class="badge badge-primary" style="cursor : pointer; visibility: hidden; position: absolute;top: -10px;left: 10px;">
+                    <i class="far fa-edit"></i></span></div>
                     
             {% endfor %}
                     <!-- MODAL SUPPRESSION -->

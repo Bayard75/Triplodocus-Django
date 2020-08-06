@@ -31,7 +31,7 @@
 {% if user.is_authenticated %}
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
     <div class="container">
-        <div class="collapse navbar-collapse" id="navcol-1">
+        <div class="navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
 <span class="navbar-text actions">
 <a class="nav-link btn btn-success action-button" href="{% url 'groupe-admin' %}" style="color:white;">Page administrative</a></span>
@@ -190,9 +190,9 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <div class="row">
+                                            <div class="row" style="justify-content:center;">
                                                 <div class="col-xl-12 offset-xl-3">
-                                                    <h3 class="modal-title" style="font-family: comfortaa;">Ecouter {{son.titre}} !</h3>
+                                                    <h3 class="modal-title" style="font-family: comfortaa;">Ecoutez {{son.titre}} !</h3>
                                                 </div>
                                             </div><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
                                         <div class="modal-body">
@@ -201,7 +201,7 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                      
-                                                        <iframe allowfullscreen frameborder="0" width="560" height="315" src="{{son.youtube}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        <iframe id="modal_youtube_iframe" allowfullscreen frameborder="0" max-width="560" max-height="315" src="{{son.youtube}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                                     </div>
                                                 </div>
                                                 {% endif %}
@@ -209,7 +209,7 @@
                                                 {% if son.spotify %}
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <iframe src="{{son.spotify}}" width="320" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                                                        <iframe id="modal_spotify_iframe" src="{{son.spotify}}" width="320" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                                                     </div>
                                                 </div>
                                                  {% endif %}

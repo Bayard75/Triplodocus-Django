@@ -639,6 +639,38 @@ body
       max-height: 375px;
     }
   }
+  @media (min-width:1025px)
+  {
+    #modal_youtube_iframe
+    {
+      width: 520px;
+      height: 320px;
+    }
+  }
+  @media (min-width:1025px)
+{
+  #modal_spotify_iframe
+  {
+    width: 380px;
+    height: 300px;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) 
+{
+  #modal_youtube_iframe
+  {
+    width: auto;
+    height: auto;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) 
+{
+#modal_spotify_iframe
+{
+  width: auto;
+  height: auto;
+}
+}
   .login-dark {
     height: 1000px;
     background: #475d62 url(star-sky.jpg);
@@ -711,15 +743,16 @@ body
     transform: translateY(1px);
   }
 
-  #pochette_row .col-md-3:hover .round-button
-  {
-    opacity: 1;
+ 
+  #pochette_row .col-md-3:hover .col-xl-9{
+    filter: brightness(0.70);
+  }
+  #pochette_row .col-md-3:hover .round-button{
     display: block;
     cursor: pointer;
-
+    filter: brightness(1);
   }
   #pochette_row .col-md-3:after{
-  clear: both;
   }
 
   .round-button{

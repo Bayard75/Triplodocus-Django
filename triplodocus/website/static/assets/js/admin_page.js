@@ -52,6 +52,23 @@ function deleteSong(id)
     })
 
 }
+
+function getSongInfo(id)
+{
+    let host = window.location.origin;
+    let get_song = new URL('/get_song_infos/'+id,host)
+
+    fetch(get_song,{
+        method: 'GET',
+    })
+    .then((reponse)=>{
+        return reponse.json()
+    })
+    .then((data)=>{
+        console.log(data)
+    })
+    }
+
 ajoutForm.addEventListener('submit',function(event)
 {
     let youtubeValue = document.getElementById('id_youtube')
