@@ -38,11 +38,15 @@ def acceuil(request):
     return render(request, 'website/acceuil_web.html', context)
 
 @login_required
-def edit_song(request):
-    if request.method == 'GET':
-        print('dans get')
-        body = json.loads(request.body)
-        id = body['id']
+@csrf_exempt
+def edit_song(request, id):
+    song_to_edit = Son.objects.get(id=id)
+    if request.method == 'POST':
+        song_form = SonForm(request.POST, request.FILES, instance=song_to_edit)
+        if song_form.is_valid():
+            song_form.save()
+            return redirect('groupe-admin')
+        return redirect('site-acceuil')
 
 @login_required
 def get_song_infos(request, id):

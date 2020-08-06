@@ -55,6 +55,8 @@ function deleteSong(id)
 
 function getSongInfo(id)
 {
+
+    document.getElementById('form_edit').setAttribute('action','/edit_song/'+id)
     let host = window.location.origin;
     let get_song = new URL('/get_song_infos/'+id,host)
     let h4 = document.getElementById('h4_edit')
@@ -64,6 +66,9 @@ function getSongInfo(id)
     let spotify_field = document.getElementById('id_spotify_edit')
     let youtube_field = document.getElementById('id_youtube_edit')
     let deezer_field = document.getElementById('id_deezer_edit')
+    let titre_image = document.getElementById('id_titre_image')
+    let poster_image = document.getElementById('id_poster_image')
+
 
     fetch(get_song,{
         method: 'GET',
@@ -80,13 +85,14 @@ function getSongInfo(id)
         spotify_field.value = song['spotify']
         youtube_field.value = song['youtube']
         deezer_field.value = song['deezer']
+        if (song['en_avant'] == true)
+        {
+            document.getElementById('id_en_avant_edit').checked = true
+        }
     })
+
     }
 
-function editSong()
-{
-    
-}
 ajoutForm.addEventListener('submit',function(event)
 {
     let youtubeValue = document.getElementById('id_youtube')
