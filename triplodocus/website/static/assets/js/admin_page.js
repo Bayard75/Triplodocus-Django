@@ -57,6 +57,13 @@ function getSongInfo(id)
 {
     let host = window.location.origin;
     let get_song = new URL('/get_song_infos/'+id,host)
+    let h4 = document.getElementById('h4_edit')
+    let titre_field = document.getElementById('id_titre_edit')
+    let resume_field = document.getElementById('id_resume_edit')
+    let realisation_field = document.getElementById('id_realisation_edit')
+    let spotify_field = document.getElementById('id_spotify_edit')
+    let youtube_field = document.getElementById('id_youtube_edit')
+    let deezer_field = document.getElementById('id_deezer_edit')
 
     fetch(get_song,{
         method: 'GET',
@@ -65,10 +72,21 @@ function getSongInfo(id)
         return reponse.json()
     })
     .then((data)=>{
-        console.log(data)
+        let song = data[0]['fields']
+        h4.innerText = 'Edition de '+song['titre']
+        titre_field.value = song['titre']
+        resume_field.value = song['resume']
+        realisation_field.value = song['realisation']
+        spotify_field.value = song['spotify']
+        youtube_field.value = song['youtube']
+        deezer_field.value = song['deezer']
     })
     }
 
+function editSong()
+{
+    
+}
 ajoutForm.addEventListener('submit',function(event)
 {
     let youtubeValue = document.getElementById('id_youtube')

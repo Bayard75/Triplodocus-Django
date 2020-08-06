@@ -780,3 +780,9 @@ body
 	font-weight:bold;
 	transition: all 0.3s ease;
 }
+
+.col-md-3:hover, .col-md-3:focus, .col-md-3:active
+{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
