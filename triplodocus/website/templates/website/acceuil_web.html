@@ -152,7 +152,7 @@
                     <h3>Un nouveau morceau chaque 3 du mois</h3>
                 </div>
             </div>
-            <div class="row row-cols-3" style="margin-top: 50px;">
+            <div class="row row-cols-3 no-gutters" style="margin-top: 50px;">
                 <div class="col"><img class="calendrier" src="static/assets/img/3_mais.png"></div>
                 <div class="col"><img class="calendrier" src="static/assets/img/3_juin.png"></div>
                 <div class="col"><img class="calendrier" src="static/assets/img/3_juillet.png"></div>
@@ -162,7 +162,7 @@
                     <h3>Une pochette animée pour chaque morceau</h3>
                 </div>
             </div>
-            <div class="row row-cols-3 d-flex" style="margin-top: 66.48px;">
+            <div class="row row-cols-3 d-flex no-gutters" style="margin-top: 66.48px;">
                 <div class="col offset-xl-0"><img class="pochette_img" src="static/assets/img/Annotation 2020-06-10 225055.png"></div>
                 <div class="col"><img class="pochette_img" src="static/assets/img/Annotation 2020-07-01 141607.png"></div>
                 <div class="col"><img class="pochette_img" src="static/assets/img/Annotation 2020106-1225055.png"></div>
@@ -176,7 +176,7 @@
                     <h1>NOS PROJETS</h1>
                 </div>
             </div>
-            <div class="row" id="pochette_row">
+            <div class="row no-gutters" id="pochette_row">
                 {% for son in sons%}
                     <div class="col-md-3" data-toggle="modal" data-target="#modal{{son.id}}">
                         <div class="row">
@@ -261,60 +261,74 @@
     </div>
     </div>
   <section id="membres_section" style="margin-top:100px">
-        <div class="container" id="wam_container">
-            <div class="row" id="wam_image_row" style="background: transparent url('static/assets/img/wam_image_fond.png') 0% 0% no-repeat padding-box; background-position: center;background-size: cover;height: 137px;">
-                <div class="col">
-                    <div></div>
-                </div>
+<div>
+    <div class="container-fluid">
+        <div class="row" id="membres_row">
+            <div class="col-md-5" style="text-align: center;"><img class="teamprofilepictures" src="static/assets/img/wam_image_fond.png" />
+                <h1 class="teamprofilenames"><img src="static/assets/img/wampetit.png"/></h1>
+                <p class="teamprofileprofessions">(espèce non répertoriée) :</p>
+
+                <p class="teamprofiledescription">Se plaît à créer de la musique en bonnecompagnie. Ses armes : l’écriture de textes,le rap, et des facultés graphiques.</p>
+
             </div>
-            <div class="row text-center" id="wam_titre_row">
-                <div class="col"><img src="static/assets/img/wampetit.png"><p>(espèce non<br> répertoriée) :<br><br> Se plaît à créer de la musique en bonne<br> compagnie. Ses armes : l’écriture de textes, le rap<br>, et des facultés graphiques.</p></div>
+            <div class="col-md-5" style="text-align: center;"><img class="teamprofilepictures" src="static/assets/img/madud_image_fond.png" />
+                <h1 class="teamprofilenames"><img src="static/assets/img/madudpetit.png"/></h1>
+                <p class="teamprofileprofessions">(n.masculin singulier) :</p>
+                <p class="teamprofiledescription">Petit animal apprivoisé vivant aux abords du hameau d’Herblay sur Seine. Son intégrité dans les institutions musicales l’a poussé à déployer ses ailes afin de voltiger sur des notes angéliques et lyriques vers la route du succès. </p>
             </div>
-        </div>
-        <div class="container" id="madud_container">
-            <div class="row" id="madud_row_image" style="background: transparent url('static/assets/img/72717461_2437643143190083_5832226788062789632_o@2x.png') 0% 0% no-repeat padding-box; background-position: center;background-size: cover;height: 137px;">
-                <div class="col">
-                    <div></div>
-                </div>
-            </div>
-            <div class="row text-center" id="madud_titre_row">
-                <div class="col"><img src="static/assets/img/madudpetit.png"><p>(n.masculin singulier) :<br><br> Petit animal apprivoisé vivant aux abords du<br> hameau d’Herblay sur Seine.<br> Son intégrité dans les institutions musicales l’a<br> poussé à déployer ses ailes afin de voltiger sur des<br> notes angéliques et lyriques vers la route du succès.</p></div>
-            </div>
-        </div>
-        <div class="container" id="wish_container">
-            <div class="row" id="wish_row_image" style="background: transparent  url('static/assets/img/72661423_2437643299856734_4756149803228856320_o@2x.png') 0% 0% no-repeat padding-box; background-position: center;background-size: cover;height: 137px;/*width: 100vw;*/">
-                <div class="col">
-                    <div></div>
-                </div>
-            </div>
-            <div class="row text-center" id="wish_titre_row">
-                <div class="col"><img src="static/assets/img/wishpetit.png"><p>(Wishus Nocturnus) :<br><br> Compositeur brillant, trompettiste hors-<br>pair et ingénieur son aux oreilles d’or, Wish<br> de Nuit a su mettre ses meilleurs atouts au service<br> du groupe aux dépens de son extrême modestie.</p></div>
+            <div class="col-md-5" style="text-align: center;"><img class="teamprofilepictures" src="static/assets/img/wish_image_fond.png" />
+                <h1 class="teamprofilenames"><img src="static/assets/img/wishpetit.png"/></h1>
+                <p class="teamprofileprofessions">(Wishus Nocturnus) :</p>
+                <p class="teamprofiledescription">Compositeur brillant, trompettiste hors-pair et ingénieur son aux oreilles d’or, Wish de Nuit a su mettre ses meilleurs atouts au service du groupe aux dépens de son extrême modestie.</p>
             </div>
         </div>
+    </div>
+</div>
     </section>
 <footer>
         <div class="container">
-        <div class="row d-flex">
+            <div class="row" id="triplo_img_footer">
+                <div class="col-md-6 offset-5"><img src="/static/assets/img/grand triplo logo noir.png" style="max-width: 150px;max-height: 168px;">
+                </div>
+            </div>
+        <div class="row" id="mobi_img_mail_footer">
+            <div class="col"><img src="static/assets/img/noun_Mail_1707176.svg"/></div>
+        </div>
+        <div class="row" id="mobi_mail">
+            <div class="col"><p>contact.triplodocus@gmail.com</p></div>
+        </div>
+        <div class="row d-flex" style="margin-top:40px">
             <div class="col">
                 <ul class="list-inline d-xl-flex justify-content-xl-center align-items-xl-center">
                     <li class="list-inline-item">
                         <a href="https://www.instagram.com/triplodocus_/">
-                            <img src="static/assets/img/instagram.svg">  @triplodocus_
+                            <img src="static/assets/img/instagram.svg">  <span class="social">@triplodocus_</span>
                         </a>
                         </li>
                     <li class="list-inline-item">
                         <a href="https://www.facebook.com/triplodocus3/">
-                            <img src="static/assets/img/facebook.svg">  triplodocus.
+                            <img src="static/assets/img/facebook.svg">  <span class="social">triplodocus.</span>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://www.youtube.com/channel/UCOV61JU3FmI1sQzdRSsxE6g">
-                            <img src="static/assets/img/Youtube.svg">  triplodocus.
+                            <img src="static/assets/img/Youtube.svg">  <span class="social">triplodocus.</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="row" id="mail" style="margin-top: 193px;">
+                <div class="col">
+                    <hr>
+                </div>
+                <div class="col-xl-6">
+                    <h1 style="text-align: center;font-family: Alba;letter-spacing: -0.94px;color: #8A847D;opacity: 1;">contact.triplodocus@gmail.com</h1>
+                </div>
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
         </div>
 </footer>
     

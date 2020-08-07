@@ -143,6 +143,7 @@ body
     #derniers_sorties_block iframe {
       margin-top: 10px;
       margin-bottom: 10px;
+      width: -webkit-fill-available;
     }
   }
   
@@ -803,4 +804,99 @@ footer a:hover
 {
   color: #8A847D;
 
+}
+@media (min-width: 320px) and (max-width: 480px){
+.social
+{
+  display: none;
+}
+}
+.teamprofilepictures {
+  width: 50%;
+  border-radius: 50%;
+  margin: 25px 0;
+}
+
+.teamprofileprofessions {
+  font-size: 23px;
+  color: gray;
+}
+
+.teamprofiledescription {
+  text-align: justify;
+  margin-top: 30px;
+  max-width: 85%;
+  margin: auto;
+}
+
+.teamprofileicons {
+  font-size: 30px;
+  margin: 30px 0 30px 0;
+}
+
+.teamprofilenames {
+  font-size: 28px;
+}
+
+@media (max-width: 576px) {
+  .teamprofilenames {
+    font-size: 23px;
+  }
+}
+#membres_row
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer
+{
+  margin-top: 100px;
+  background-color: #EFE5D9;
+}
+@media (min-width: 320px) and (max-width: 480px){
+#mail
+{
+  display: none;
+}
+}
+#triplo_img_footer
+{
+  margin: auto;
+  padding-top: 105px;
+  padding-bottom: 100px;
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #triplo_img_footer
+  {
+    display: none;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px){
+footer img{
+  width: 55px;
+  height: 38px;
+}
+}
+@media (min-width: 320px) and (max-width: 480px){
+#mobi_img_mail_footer
+{
+  padding-top: 40px;
+}
+}
+@media (min-width: 1025px)
+{
+  #mobi_img_mail_footer
+  {
+    display: none;
+  }
+}
+@media (min-width: 1025px)
+{
+  #mobi_mail
+  {
+    display: none;
+  }
 }
