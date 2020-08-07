@@ -25,7 +25,7 @@ SECRET_KEY = '!e9a3t2mjodtlbbmu=!#&sy^$y7_#7autn)^ungm0hb$q7!f&7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.202.237.151']
+ALLOWED_HOSTS = ['54.202.237.151','localhost']
 
 
 # Application definition
@@ -132,14 +132,17 @@ MEDIA_URL = '/media/'
 MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACAK = 'bootstrap4'
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+'''
+AWS_S3_REGION_NAME = 'eu-west-3'
+AWS_DEFAULT_ACL = None
+AWS_ACCESS_KEY_ID = 'AKIA2GMBHWDCWOKKX6G2'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'triplos3'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
+'''
 LOGIN_URL = 'connexion'
 LOGIN_REDIRECT_URL = 'site-acceuil'
 
