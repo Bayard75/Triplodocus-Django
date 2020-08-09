@@ -11,12 +11,6 @@ body{background:no-repeat padding-box #f7f1e9;opacity:1}@media (min-width:300px)
 {
 background-color: #F7F1E9;
 }
-.fade {
-  opacity: 1;
-  -webkit-transition: opacity 0.70s linear;
-  transition: opacity 0.70s linear;
-}
-
 input
 {
   width: -webkit-fill-available;;
