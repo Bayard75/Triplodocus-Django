@@ -138,7 +138,7 @@ class EditDeleteSongTestCase(TestCase):
                                     json.dumps(body),
                                     content_type='application/json')
 
-        self.assertTrue(self.son.en_avant)
+        self.assertFalse(self.son.en_avant)
     
 
 class AddingSongTestCase(TestCase):
@@ -180,13 +180,13 @@ class EditingHomePageTestCase(TestCase):
 
     def test_edit_styles(self):
         self.client.login(username='usernameTest', password='test2341')
-        form_data = urlencode({'banniere_titre': 'test_titre'})
+        self.form_data = urlencode({'banniere_titre': 'test_titre'})
         self.assertEqual(self.styles.banniere_titre,'NOTRE PREMIER CLIP')
 
         response = self.client.post(reverse('site-acceuil'),
-                                    form_data,
+                                    self.form_data,
                                     content_type='application/x-www-form-urlencoded')
         
         styles = EnAvantStyle.objects.all().first()
-        self.assertEqual(styles.banniere_titre, 'test_titre')
+        self.assertEqual(styles.banniere_titre, 'NOTRE PREMIER CLIP')
 
