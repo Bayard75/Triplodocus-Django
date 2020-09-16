@@ -31,8 +31,7 @@ class HomePageSeleniumTest(StaticLiveServerTestCase):
                         deezer='www.deezer.com',
                         spotify='www.spotify.com'
                         )
-        self.styles = EnAvantStyle.objects.create()
-        
+w        
         self.selenium = webdriver.Chrome(ChromeDriverManager().install())
     
     def tearDown(self):

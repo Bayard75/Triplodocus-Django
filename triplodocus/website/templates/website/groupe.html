@@ -4,6 +4,16 @@
 <html>
 
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172039803-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172039803-1');
+</script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Triplo v2</title>
@@ -173,78 +183,72 @@
                     <h1 style="font-family: &quot;Bondi&quot;;background: #FFFFFF 0% 0% no-repeat padding-box;border-radius: 13px;text-align: center;
                     max-width:390px; margin: 0 auto; margin-bottom:20px">VOS STATISTIQUES</h1>
         
-        <script>
-            (function(w,d,s,g,js,fs){
-            g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
-            js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
-            js.src='https://apis.google.com/js/platform.js';
-            fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
-            }(window,document,'script'));
-        </script>
+        
+                <section id="auth-button"></section>
+                <section id="view-selector"></section>
+                <section id="timeline"></section>
 
-        <div id="embed-api-auth-container"></div>
-        <div id="chart-container"></div>
-        <div id="view-selector-container"></div>
+                <!-- Step 2: Load the library. -->
 
-        <script>
+                <script>
+                (function(w,d,s,g,js,fjs){
+                g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+                js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+                js.src='https://apis.google.com/js/platform.js';
+                fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+                }(window,document,'script'));
+                </script>
+                <script>
+                gapi.analytics.ready(function() {
 
-            gapi.analytics.ready(function() {
+                // Step 3: Authorize the user.
 
-            /**
-            * Authorize the user immediately if the user has already granted access.
-            * If no access has been created, render an authorize button inside the
-            * element with the ID "embed-api-auth-container".
-            */
-            gapi.analytics.auth.authorize({
-            container: 'embed-api-auth-container',
-            clientid: '546538593561-77hqk96juojkujusrre65u8ltspq984o.apps.googleusercontent.com'
-            });
+                var CLIENT_ID = '546538593561-52ug41aq11fvipm61oih442nf876ejau.apps.googleusercontent.com';
 
+                gapi.analytics.auth.authorize({
+                    container: 'auth-button',
+                    clientid: CLIENT_ID,
+                });
 
-            /**
-            * Create a new ViewSelector instance to be rendered inside of an
-            * element with the id "view-selector-container".
-            */
-            var viewSelector = new gapi.analytics.ViewSelector({
-            container: 'view-selector-container'
-            });
+                // Step 4: Create the view selector.
 
-            // Render the view selector to the page.
-            viewSelector.execute();
+                var viewSelector = new gapi.analytics.ViewSelector({
+                    container: 'view-selector'
+                });
 
+                // Step 5: Create the timeline chart.
 
-            /**
-            * Create a new DataChart instance with the given query parameters
-            * and Google chart options. It will be rendered inside an element
-            * with the id "chart-container".
-            */
-            var dataChart = new gapi.analytics.googleCharts.DataChart({
-            query: {
-                metrics: 'ga:sessions',
-                dimensions: 'ga:date',
-                'start-date': '30daysAgo',
-                'end-date': 'yesterday'
-            },
-            chart: {
-                container: 'chart-container',
-                type: 'LINE',
-                options: {
-                width: '100%'
-                }
-            }
-            });
+                var timeline = new gapi.analytics.googleCharts.DataChart({
+                    reportType: 'ga',
+                    query: {
+                    'dimensions': 'ga:date',
+                    'metrics': 'ga:sessions',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday',
+                    },
+                    chart: {
+                    type: 'LINE',
+                    container: 'timeline'
+                    }
+                });
 
+                // Step 6: Hook up the components to work together.
 
-            /**
-            * Render the dataChart on the page whenever a new view is selected.
-            */
-            viewSelector.on('change', function(ids) {
-            dataChart.set({query: {ids: ids}}).execute();
-            });
+                gapi.analytics.auth.on('success', function(response) {
+                    viewSelector.execute();
+                });
 
-            });
-        </script>
-    </div>
+                viewSelector.on('change', function(ids) {
+                    var newIds = {
+                    query: {
+                        ids: ids
+                    }
+                    }
+                    timeline.set(newIds).execute();
+                });
+                });
+                </script>
+                </div>
         <script src= "static/assets/js/admin_page.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

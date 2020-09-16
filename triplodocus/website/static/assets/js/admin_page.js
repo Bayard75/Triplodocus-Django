@@ -1,7 +1,7 @@
 let ajoutForm = document.getElementById('form_ajout')
 
 // Hiding the logged as
-document.getElementById('embed-api-auth-container').style.display = 'none';
+document.getElementById("auth-button").style.display = 'none';
 
 function displayBadges(deleteId, editId)
 {
